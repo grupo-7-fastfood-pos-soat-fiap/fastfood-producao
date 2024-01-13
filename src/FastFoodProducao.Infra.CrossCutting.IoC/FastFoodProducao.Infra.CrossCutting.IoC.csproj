@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>    
+    <ProjectReference Include="..\FastFoodProducao.Application\FastFoodProducao.Application.csproj" />
+    <ProjectReference Include="..\FastFoodProducao.Domain\FastFoodProducao.Domain.csproj" />
+    <ProjectReference Include="..\FastFoodProducao.Infra.Data\FastFoodProducao.Infra.Data.csproj" />
+    <ProjectReference Include="..\GenericPack\GenericPack.csproj" />
+    <PackageReference Include="Dapper" Version="2.0.151" />
+
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />   
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+  </ItemGroup>
+
+<ItemGroup>
+  <ProjectReference Include="..\FastFoodProducao.Infra.CrossCutting.Bus\FastFoodProducao.Infra.CrossCutting.Bus.csproj" />
+</ItemGroup>
+</Project>
