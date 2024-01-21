@@ -9,8 +9,8 @@ namespace FastFoodProducao.Services.Api.Configurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("Connectionstring")));           
+            // services.AddDbContext<AppDbContext>(options =>
+            //     options.UseMongoDB(database.Client, database.DatabaseNamespace.DatabaseName));           
         }
     }
 }

@@ -9,19 +9,19 @@ namespace FastFoodProducao.Infra.Data.Repository
     public class SituacaoPedidoRepository: ISituacaoPedidoRepository
     {
         protected readonly AppDbContext Db;
-        protected readonly DbSet<SituacaoPedido> DbSet;
+        //protected readonly DbSet<SituacaoPedido> DbSet;
 
-        public SituacaoPedidoRepository(AppDbContext context)
+        public SituacaoPedidoRepository()//AppDbContext context)
         {
-            Db = context;
-            DbSet = Db.Set<SituacaoPedido>();
+            //Db = context;
+            //DbSet = Db.Set<SituacaoPedido>();
         }
 
         public IUnitOfWork UnitOfWork => Db;
 
         public async Task<IEnumerable<SituacaoPedido>> GetAll()
         {
-            return await DbSet.AsNoTracking().OrderBy(on => on.Id).ToListAsync();
+            return null; //await DbSet.AsNoTracking().OrderBy(on => on.Id).ToListAsync();
         }
 
         public void Dispose()
