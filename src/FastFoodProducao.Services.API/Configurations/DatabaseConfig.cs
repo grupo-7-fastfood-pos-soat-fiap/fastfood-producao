@@ -1,4 +1,4 @@
-﻿//using FastFoodProducao.Infra.Data.Context;
+﻿using FastFoodProducao.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace FastFoodProducao.Services.Api.Configurations
@@ -9,8 +9,8 @@ namespace FastFoodProducao.Services.Api.Configurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            //services.AddDbContext<AppDbContext>(options =>
-            //    options.UseNpgsql(configuration.GetConnectionString("Connectionstring")));           
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("Connectionstring")));           
         }
     }
 }
