@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-//using FastFoodProducao.Domain.Models;
-//using FastFoodProducao.Domain.Models.PedidoAggregate;
-//using FastFoodProducao.Domain.Models.ProdutoAggregate;
-//using FastFoodProducao.Infra.Data.Mappings;
+using FastFoodProducao.Domain.Models;
+using FastFoodProducao.Infra.Data.Mappings;
 using GenericPack.Data;
 using GenericPack.Domain;
 using GenericPack.Mediator;
@@ -15,19 +13,8 @@ namespace FastFoodProducao.Infra.Data.Context
     public sealed class AppDbContext : DbContext, IUnitOfWork
     {
         private readonly IMediatorHandler _mediatorHandler;
-        //public DbSet<Andamento>? Andamentos { get; set; }
-        //public DbSet<Cliente>? Clientes { get; set; }
-        //public DbSet<CategoriaProduto>? CategoriasProdutos { get; set; }
-        //public DbSet<Pedido>? Pedidos { get; set; }
-        //public DbSet<PedidoCombo>? PedidosCombos { get; set; }
-        //public DbSet<PedidoComboProduto>? PedidosCombosProdutos { get; set; }
-        //public DbSet<Produto>? Produtos { get; set; }
-        //public DbSet<Imagem>? ProdutosImagens { get; set; }
-        //public DbSet<SituacaoPedido>? SituacoesPedidos { get; set; }
-        //public DbSet<SituacaoPagamento>? SituacoesPagamento { get; set; }
-        //public DbSet<Pagamento>? Pagamentos { get; set; }
-        //public DbSet<Ocupacao>? Ocupacoes { get; set; }
-        //public DbSet<Funcionario>? Funcionarios { get; set; }
+        public DbSet<Andamento>? Andamentos { get; set; }
+        public DbSet<SituacaoPedido>? SituacoesPedidos { get; set; }        
 
 
         public AppDbContext(DbContextOptions<AppDbContext> options, IMediatorHandler mediatorHandler) : base(options)
@@ -56,20 +43,9 @@ namespace FastFoodProducao.Infra.Data.Context
                 e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
-            ////Configura mapeamento
-            //modelBuilder.ApplyConfiguration(new AndamentosMap());
-            //modelBuilder.ApplyConfiguration(new ClientesMap());
-            //modelBuilder.ApplyConfiguration(new CategoriasProdutosMap());
-            //modelBuilder.ApplyConfiguration(new PedidosMap());
-            //modelBuilder.ApplyConfiguration(new PedidosCombosMap());
-            //modelBuilder.ApplyConfiguration(new PedidosCombosProdutosMap());
-            //modelBuilder.ApplyConfiguration(new ProdutosMap());
-            //modelBuilder.ApplyConfiguration(new ProdutosImagensMap());
-            //modelBuilder.ApplyConfiguration(new SituacoesPedidosMap());
-            //modelBuilder.ApplyConfiguration(new PagamentosMap());
-            //modelBuilder.ApplyConfiguration(new OcupacoesMap());
-            //modelBuilder.ApplyConfiguration(new FuncionariosMap());
-            //modelBuilder.ApplyConfiguration(new SituacoesPagamentosMap());
+            //Configura mapeamento
+            modelBuilder.ApplyConfiguration(new AndamentosMap());
+            modelBuilder.ApplyConfiguration(new SituacoesPedidosMap());            
 
             base.OnModelCreating(modelBuilder);
         }
