@@ -1,50 +1,23 @@
-﻿using FastFoodProducao.Domain.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 
-namespace FastFoodProducao.Infra.Data.Mappings
-{
-    public class AndamentosMap : IEntityTypeConfiguration<Andamento>
+namespace FastFoodProducao.Infra.Data.Mappings{
+    public class AndamentosMap 
     {
-        public void Configure(EntityTypeBuilder<Andamento> builder)
-        {
-            builder.ToTable("pedidos_andamentos");
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]        
+        public Guid Id { get; set; }
 
-            builder.HasKey(c => c.Id)
-                .HasName("PRIMARY");
+        [BsonGuidRepresentation(GuidRepresentation.Standard)]
+        public Guid PedidoId { get; private set; }
+        public DateTime DataHoraInicio { get; private set; }
+        public DateTime? DataHoraFim { get; private set; }
 
-            builder.Property(c => c.Id)
-                .HasColumnName("id");
-
-            builder.Property(c => c.PedidoId)
-                .HasColumnName("pedido_id");
-
-            builder.HasIndex(c => c.PedidoId);            
-
-            builder.Property(c => c.DataHoraInicio)
-                .HasColumnName("data_hora_inicio");
-
-            builder.Property(c => c.DataHoraFim)
-                .HasColumnName("data_hora_fim");
-
-            builder.Property(c => c.Atual)
-                .HasColumnName("atual");
-
-            builder.Property(c => c.SituacaoId)
-                .HasColumnName("situacao_id");
-
-            builder.HasIndex(c => c.SituacaoId);
-
-            builder.HasOne(c => c.SituacaoPedidoNavegation)
-               .WithMany()
-               .HasForeignKey(p => p.SituacaoId);
-
-            builder.Property(c => c.FuncionarioId)
-                .HasColumnName("funcionario_id");
-
-            builder.HasIndex(c => c.FuncionarioId);
-            
-            builder.Navigation(e => e.SituacaoPedidoNavegation).AutoInclude();            
-        }
+        [BsonGuidRepresentation(GuidRepresentation.Standard)]
+        public Guid? FuncionarioId { get; private set; }
+        public int SituacaoId { get; private set; }
+        public bool Atual { get; set; }           
     }
 }
+

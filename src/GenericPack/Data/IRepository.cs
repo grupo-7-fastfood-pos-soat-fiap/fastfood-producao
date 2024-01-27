@@ -3,8 +3,7 @@ using System;
 
 namespace GenericPack.Data
 {
-    public interface IRepository<T> : IDisposable where T : IAggregateRoot
+    public interface IRepository<T> 
     {
-        IUnitOfWork UnitOfWork { get; }
     }
 }

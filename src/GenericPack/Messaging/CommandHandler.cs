@@ -18,16 +18,11 @@ namespace GenericPack.Messaging
             CommandResult.ValidationResult.Errors.Add(new ValidationFailure(string.Empty, mensagem));
         }
 
-        protected async Task<CommandResult> Commit(IUnitOfWork uow, string message, Object? id)
+        protected async Task<CommandResult> Commit(Object? id)
         {
-            if (!await uow.Commit()) AddError(message);
+            //if (!await uow.Commit()) AddError(message);
             CommandResult.Id = id;
             return CommandResult;
-        }
-
-        protected async Task<CommandResult> Commit(IUnitOfWork uow, Object? id = null)
-        {
-            return await Commit(uow, "There was an error saving data",id).ConfigureAwait(false);
-        }
+        }        
     }
 }

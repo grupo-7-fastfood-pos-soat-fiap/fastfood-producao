@@ -1,8 +1,9 @@
 namespace GenericPack.Data
 {
-public class DatabaseConfig : IDatabaseConfig
+public class StoreDatabaseConfig : IDatabaseConfig
     {
-        public string DatabaseName { get;  set; }
-        public string ConnectionString { get; set; }
+        public string DatabaseName { get;  set; } = null!;
+        public string ConnectionString { get; set; }= null!;
+        public string CollectionName { get; set; }= null!;
     }
 }

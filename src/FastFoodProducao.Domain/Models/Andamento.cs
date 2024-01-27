@@ -2,7 +2,7 @@
 
 namespace FastFoodProducao.Domain.Models
 {
-    public class Andamento : Entity, IAggregateRoot
+    public class Andamento : Entity
     {
         public Guid PedidoId { get; private set; }
         public DateTime DataHoraInicio { get; private set; }
@@ -10,8 +10,6 @@ namespace FastFoodProducao.Domain.Models
         public Guid? FuncionarioId { get; private set; }
         public int SituacaoId { get; private set; }
         public bool Atual { get; set; }
-
-        public virtual SituacaoPedido? SituacaoPedidoNavegation { get; private set; }
 
         private Andamento()
         {

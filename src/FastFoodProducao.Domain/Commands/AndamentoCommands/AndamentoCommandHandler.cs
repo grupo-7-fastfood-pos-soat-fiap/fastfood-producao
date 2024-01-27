@@ -39,12 +39,13 @@ namespace FastFoodProducao.Domain.Commands.AndamentoCommands
                     AddError("A situação não corresponde a ordem de atendimento.");
                     return CommandResult;
                 }
-            }           
+            }
+            _repository.DesativaAndamentosAnteriosDoPedido(request.PedidoId);
 
             var andamento = new Andamento(Guid.NewGuid(), request.PedidoId, request.FuncionarioId, request.SituacaoId, request.DataHoraInicio, null, request.Atual);
             _repository.Add(andamento);
 
-            return await Commit(_repository.UnitOfWork, request.PedidoId);
+            return await Commit(andamento.Id);
         }
 
         public async Task<CommandResult> Handle(AndamentoUpdateCommand request, CancellationToken cancellationToken)
@@ -62,12 +63,7 @@ namespace FastFoodProducao.Domain.Commands.AndamentoCommands
 
             _repository.Update(andamento);
 
-            return await Commit(_repository.UnitOfWork);
-        }
-
-        public void Dispose()
-        {
-            _repository.Dispose();
-        }
+            return await Commit(andamento.Id);
+        }        
     }
 }

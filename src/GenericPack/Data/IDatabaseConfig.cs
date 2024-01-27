@@ -5,5 +5,7 @@ namespace GenericPack.Data
         string DatabaseName { get; set; }
 
         string ConnectionString { get; set; }
+
+        public string CollectionName { get; set; }
     }
 }

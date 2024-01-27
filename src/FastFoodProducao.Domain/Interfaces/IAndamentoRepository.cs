@@ -10,5 +10,8 @@ namespace FastFoodProducao.Domain.Interfaces
         void Update(Andamento andamento);
         void DesativaAndamentosAnteriosDoPedido(Guid pedidoId);
         Task<IEnumerable<Andamento>> GetAllByPedido(Guid pedidoId);
+        Task<IEnumerable<Andamento>> GetAllAtivos();
+        Task<IEnumerable<Andamento>> GetAllByCriacao();
+        Task<IEnumerable<Andamento>> GetAllBySituacao(int situacaoId);
     }
 }
