@@ -12,13 +12,7 @@ namespace FastFoodProducao.Application.AutoMapper
         {
             AllowNullCollections = true;            
 
-            CreateMap<SituacaoPedido, SituacaoPedidoViewModel>();
-
-            CreateMap<Andamento, AndamentoViewModel>()
-               .ForMember(c => c.Situacao,
-                   map => map.MapFrom(m => m.SituacaoPedidoNavegation));
-
-
+            CreateMap<Andamento, AndamentoViewModel>();
         }
     }
 }

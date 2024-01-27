@@ -5,9 +5,9 @@ namespace FastFoodProducao.Domain.Commands.AndamentoCommands
     public class AndamentoCreateCommand : AndamentoCommand
     {
         public AndamentoCreateCommand(Guid pedidoId, Guid funcionarioId, int situacaoId)
-        {            
+        {
             PedidoId = pedidoId;
-            DataHoraInicio=DateTime.Now;
+            DataHoraInicio= DateTime.UtcNow;
             DataHoraFim = null;
             FuncionarioId = funcionarioId;
             SituacaoId = situacaoId;
