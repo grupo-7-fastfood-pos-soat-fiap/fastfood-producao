@@ -7,12 +7,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\GenericPack\GenericPack.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="CustomValidations\" />
     <Folder Include="Interfaces\" />
+    <PackageReference Include="GenericPack.FIAP.Grupo7.SOAP2" Version="1.0.0" />
   </ItemGroup>
 </Project>

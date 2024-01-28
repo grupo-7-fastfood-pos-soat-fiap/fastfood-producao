@@ -9,7 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FastFoodProducao.Domain\FastFoodProducao.Domain.csproj" />
     <ProjectReference Include="..\FastFoodProducao.Infra.Data\FastFoodProducao.Infra.Data.csproj" />
-    <ProjectReference Include="..\GenericPack\GenericPack.csproj" />
+    <PackageReference Include="GenericPack.FIAP.Grupo7.SOAP2" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>

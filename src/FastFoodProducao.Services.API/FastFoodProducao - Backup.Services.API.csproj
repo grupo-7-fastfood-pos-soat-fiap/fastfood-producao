@@ -9,6 +9,7 @@
  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <PackageReference Include="GenericPack.FIAP.Grupo7.SOAP2" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GenericPack\GenericPack.csproj" />
     <ProjectReference Include="..\FastFoodProducao.Application\FastFoodProducao.Application.csproj" />
     <ProjectReference Include="..\FastFoodProducao.Infra.CrossCutting.IoC\FastFoodProducao.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
