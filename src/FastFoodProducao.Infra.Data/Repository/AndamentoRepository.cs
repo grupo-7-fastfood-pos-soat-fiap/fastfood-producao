@@ -3,6 +3,7 @@ using FastFoodProducao.Domain.Models;
 using GenericPack.Data;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
 namespace FastFoodProducao.Infra.Data.Repository
@@ -23,9 +24,9 @@ namespace FastFoodProducao.Infra.Data.Repository
             _andamentos.InsertOne(andamento);
         }        
 
-        public async Task<Andamento?> GetById(Guid id)
+        public async Task<Andamento?> GetById(Guid pedidoId)
         {
-            return (Andamento)await _andamentos.Find(c => c.Id == id).FirstOrDefaultAsync();
+            return (Andamento)await _andamentos.Find(c => c.Atual && c.PedidoId == pedidoId).FirstOrDefaultAsync();
         }
 
         public void Update(Andamento andamento)
@@ -51,7 +52,7 @@ namespace FastFoodProducao.Infra.Data.Repository
 
         public async Task<IEnumerable<Andamento>> GetAllAtivos()
         {
-            return _andamentos.Find(c => c.Atual).ToList().OrderBy(c => c.DataHoraInicio).OrderBy(c => c.SituacaoId);
+            return _andamentos.Find(c => c.Atual && c.SituacaoId < 4).ToList().OrderBy(c => c.DataHoraInicio).OrderBy(c => c.SituacaoId);
         }
 
         public async Task<IEnumerable<Andamento>> GetAllByCriacao()

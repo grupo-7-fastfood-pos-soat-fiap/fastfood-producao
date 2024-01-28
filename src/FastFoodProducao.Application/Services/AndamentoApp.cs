@@ -24,9 +24,9 @@ namespace FastFoodProducao.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<AndamentoViewModel> GetById(Guid id)
+        public async Task<AndamentoViewModel> GetById(Guid pedidoId)
         {
-            return _mapper.Map<AndamentoViewModel>(await _andamentoRepository.GetById(id));
+            return _mapper.Map<AndamentoViewModel>(await _andamentoRepository.GetById(pedidoId));
         }
 
         public async Task<CommandResult> Add(AndamentoInputModel model)

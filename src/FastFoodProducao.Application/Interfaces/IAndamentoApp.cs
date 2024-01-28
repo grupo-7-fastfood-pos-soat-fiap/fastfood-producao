@@ -6,7 +6,7 @@ namespace FastFoodProducao.Application.Interfaces
 {
     public interface IAndamentoApp
     {
-        Task<AndamentoViewModel> GetById(Guid id);
+        Task<AndamentoViewModel> GetById(Guid pedidoId);
         Task<List<AndamentoViewModel>> GetAllByCriacao();
         Task<List<AndamentoViewModel>> GetAllAtivos();
         Task<List<AndamentoViewModel>> GetAllBySituacao(int situacaoId);

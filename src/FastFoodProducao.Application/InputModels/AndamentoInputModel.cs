@@ -9,7 +9,7 @@ namespace FastFoodProducao.Application.InputModels
     public class AndamentoInputModel
     {
         public Guid pedidoId { get; set; }
-        public Guid FuncionarioId { get; set; }
+        public Guid? FuncionarioId { get; set; }
         public int SituacaoId { get; set; }
     }
 }
