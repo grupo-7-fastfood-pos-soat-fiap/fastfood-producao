@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Services.API", "FastFoodProducao.Services.API\FastFoodProducao.Services.API.csproj", "{EB0363DB-5D4B-4430-979F-33E386BBB69A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Services.API", "src\FastFoodProducao.Services.API\FastFoodProducao.Services.API.csproj", "{EB0363DB-5D4B-4430-979F-33E386BBB69A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Application", "FastFoodProducao.Application\FastFoodProducao.Application.csproj", "{86851F77-81F2-424D-91BD-AD3BB9D8BD63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Application", "src\FastFoodProducao.Application\FastFoodProducao.Application.csproj", "{86851F77-81F2-424D-91BD-AD3BB9D8BD63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Domain", "FastFoodProducao.Domain\FastFoodProducao.Domain.csproj", "{6A20D00B-A5C6-47E5-9609-A0C42C561B09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Domain", "src\FastFoodProducao.Domain\FastFoodProducao.Domain.csproj", "{6A20D00B-A5C6-47E5-9609-A0C42C561B09}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Infra.CrossCutting.Bus", "FastFoodProducao.Infra.CrossCutting.Bus\FastFoodProducao.Infra.CrossCutting.Bus.csproj", "{86E46AF8-D3A6-4B9B-BF43-E62B643BA4C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Infra.CrossCutting.Bus", "src\FastFoodProducao.Infra.CrossCutting.Bus\FastFoodProducao.Infra.CrossCutting.Bus.csproj", "{86E46AF8-D3A6-4B9B-BF43-E62B643BA4C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Infra.CrossCutting.IoC", "FastFoodProducao.Infra.CrossCutting.IoC\FastFoodProducao.Infra.CrossCutting.IoC.csproj", "{FACD2EF2-3C47-4C06-91A6-9C1D884ED727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Infra.CrossCutting.IoC", "src\FastFoodProducao.Infra.CrossCutting.IoC\FastFoodProducao.Infra.CrossCutting.IoC.csproj", "{FACD2EF2-3C47-4C06-91A6-9C1D884ED727}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Infra.Data", "FastFoodProducao.Infra.Data\FastFoodProducao.Infra.Data.csproj", "{8F460611-FC09-4A83-86A5-2B7AD8563983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Infra.Data", "src\FastFoodProducao.Infra.Data\FastFoodProducao.Infra.Data.csproj", "{8F460611-FC09-4A83-86A5-2B7AD8563983}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericPack", "GenericPack\GenericPack.csproj", "{79EBD0A7-FE83-4C95-917C-3CA1A0DE15A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericPack", "src\GenericPack\GenericPack.csproj", "{79EBD0A7-FE83-4C95-917C-3CA1A0DE15A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodProducao.Domain.Test", "test\FastFoodProducao.Domain.Test\FastFoodProducao.Domain.Test.csproj", "{48A025BF-50A6-4448-955E-2D339D7E2320}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{79EBD0A7-FE83-4C95-917C-3CA1A0DE15A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79EBD0A7-FE83-4C95-917C-3CA1A0DE15A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79EBD0A7-FE83-4C95-917C-3CA1A0DE15A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A025BF-50A6-4448-955E-2D339D7E2320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A025BF-50A6-4448-955E-2D339D7E2320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A025BF-50A6-4448-955E-2D339D7E2320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A025BF-50A6-4448-955E-2D339D7E2320}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

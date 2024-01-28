@@ -69,6 +69,28 @@ namespace FastFoodProducao.Services.Api.Controllers
 
         }
 
+        [HttpGet("{pedidoId}")]
+        [SwaggerOperation(
+        Summary = "Localiza o andamento atual de um pedido.",
+        Description = "Localiza o andamento atual de um pedido pelo seu ID."
+        )]
+        [SwaggerResponse(200, "Success", typeof(AndamentoViewModel))]
+        [SwaggerResponse(400, "Bad Request")]
+        [SwaggerResponse(404, "Not Found")]
+        [SwaggerResponse(500, "Unexpected error")]
+        public async Task<IActionResult> GetById([FromRoute] Guid pedidoId)
+        {
+            try
+            {
+                return CustomResponse(await _andamentoApp.GetById(pedidoId));
+            }
+            catch (Exception e)
+            {
+                return Problem("Há um problema com a sua requisição - " + e.Message);
+            }
+            
+        }
+
         [HttpPost]
         [SwaggerOperation(
         Summary = "Criar um novo andamento para o pedido.",
@@ -111,7 +133,7 @@ namespace FastFoodProducao.Services.Api.Controllers
         {
             try
             {
-                var lista = await _andamentoApp.GetAllBySituacao(id);
+                List<AndamentoViewModel> lista = await _andamentoApp.GetAllBySituacao(id);
                 return CustomListResponse(lista, lista.Count);
             }
             catch (Exception e)
