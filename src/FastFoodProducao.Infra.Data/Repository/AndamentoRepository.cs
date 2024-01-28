@@ -24,9 +24,9 @@ namespace FastFoodProducao.Infra.Data.Repository
             _andamentos.InsertOne(andamento);
         }        
 
-        public async Task<Andamento?> GetById(Guid pedidoId)
+        public async Task<Andamento?> GetById(Guid id)
         {
-            return (Andamento)await _andamentos.Find(c => c.Atual && c.PedidoId == pedidoId).FirstOrDefaultAsync();
+            return (Andamento)await _andamentos.Find(c =>c.Id == id).FirstOrDefaultAsync();
         }
 
         public void Update(Andamento andamento)
