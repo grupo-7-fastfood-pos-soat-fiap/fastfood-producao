@@ -31,6 +31,7 @@ builder.Services.AddSwaggerGen(s => {
     s.EnableAnnotations();
 });
 
+
 // .NET Native DI Abstraction
 builder.Services.AddDependencyInjectionConfiguration(builder.Configuration);
 
@@ -75,5 +76,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(x => x.AllowAnyHeader().AllowAnyOrigin());
 
 app.Run();

@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using Amazon.SQS;
+using AutoMapper;
 using FastFoodProducao.Application.InputModels;
 using FastFoodProducao.Application.Interfaces;
 using FastFoodProducao.Application.ViewModels;
 using FastFoodProducao.Domain.Commands.AndamentoCommands;
 using FastFoodProducao.Domain.Interfaces;
-using FastFoodProducao.Domain.Models;
-using FluentValidation.Results;
+using FastFoodProducao.Infra.Data.Mensageria;
 using GenericPack.Mediator;
 using GenericPack.Messaging;
 
@@ -16,11 +16,14 @@ namespace FastFoodProducao.Application.Services
         private readonly IAndamentoRepository _andamentoRepository;
         private readonly IMapper _mapper;
         private readonly IMediatorHandler _mediator;
+        private readonly AndamentoMensageria _andamentoMensageria;
+
+        // public AndamentoMensageria AndamentoMensageria => _andamentoMensageria;
 
         public AndamentoApp(IAndamentoRepository andamentoRepository, IMediatorHandler mediator, IMapper mapper)
         {
             _andamentoRepository = andamentoRepository;
-            _mediator = mediator;
+            _mediator = mediator;  
             _mapper = mapper;
         }
 
@@ -32,6 +35,25 @@ namespace FastFoodProducao.Application.Services
         public async Task<CommandResult> Add(AndamentoInputModel model)
         {
             var command = _mapper.Map<AndamentoCreateCommand>(model);
+            var situacaoId = command.SituacaoId;
+
+            if (situacaoId == 1)
+            {
+                // enviar mensagem para a queue "pedido-producao-recebido"
+                await AndamentoMensageria.SendMessage("https://sqs.us-east-1.amazonaws.com/381491906285/pedido-producao-recebido", command.PedidoId);
+            } else if (situacaoId == 2)
+            {
+                // enviar mensagem para a que "pedido-producao-emPreparacao"
+                await AndamentoMensageria.SendMessage("https://sqs.us-east-1.amazonaws.com/381491906285/pedido-producao-emPreparacao",command.PedidoId);
+            } else if (situacaoId == 3)
+            {
+                // enviar mensagem para a que "pedido-producao-pronto"
+                await AndamentoMensageria.SendMessage("https://sqs.us-east-1.amazonaws.com/381491906285/pedido-producao-pronto",command.PedidoId);
+            } else if (situacaoId == 5)
+            {
+                // enviar mensagem para a que "pedido-producao-finalizado"
+                await AndamentoMensageria.SendMessage("https://sqs.us-east-1.amazonaws.com/381491906285/pedido-producao-finalizado",command.PedidoId);
+            }
             return await _mediator.SendCommand(command);
         }
 

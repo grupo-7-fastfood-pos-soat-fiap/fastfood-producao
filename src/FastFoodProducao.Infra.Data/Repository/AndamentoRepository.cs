@@ -8,11 +8,11 @@ using MongoDB.Driver;
 
 namespace FastFoodProducao.Infra.Data.Repository
 {    
-    public class AndamentoRepository:IAndamentoRepository
+    public class AndamentoMensageria:IAndamentoRepository
     {
         private readonly IMongoCollection<Andamento> _andamentos;        
 
-        public AndamentoRepository(IOptions<StoreDatabaseConfig> databaseConfig )
+        public AndamentoMensageria(IOptions<StoreDatabaseConfig> databaseConfig )
         {
             var client = new MongoClient(databaseConfig.Value.ConnectionString);
             var database = client.GetDatabase(databaseConfig.Value.DatabaseName);

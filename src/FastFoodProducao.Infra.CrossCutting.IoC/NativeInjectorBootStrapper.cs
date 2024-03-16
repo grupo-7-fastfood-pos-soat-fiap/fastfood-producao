@@ -36,7 +36,7 @@ namespace FastFoodProducao.Infra.CrossCutting.IoC
              services.AddScoped<IAndamentoApp, AndamentoApp>();
         
              // Infra - Data           
-             services.AddScoped<IAndamentoRepository, AndamentoRepository>();
+             services.AddScoped<IAndamentoRepository, AndamentoMensageria>();
         
              // AutoMapper Settings
              services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(InputModelToDomainMappingProfile));
