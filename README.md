@@ -25,8 +25,8 @@ No projeto atual temos as seguintes funcionalidades:
 Como o serviço de produção envolve envolve apenas o controle do andamento do pedido, ou seja, sem relacionamentos complexos, o sistema utiliza o banco de dados NoSQL MongoDB.
 
 ### Mongo Express
-Usuário: admin
-Senha: pass
+- Usuário: admin
+- Senha: pass
 
 ## Tecnologias
 
